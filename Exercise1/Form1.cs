@@ -56,6 +56,36 @@ namespace Exercise1
                     listBox2.Items.Add($"You have {i} red cars");
                 }
             );
+
+            btnOldCars.Click += new EventHandler(
+                (sender, e) =>
+                {
+                    int i = Cars.Count(x => x.Year < 2003);
+                    listBox2.Items.Add($"You have {i} cars made before 2003");
+                }
+            );
+
+            btnGreyVolvo.Click += new EventHandler(
+                (sender, e) =>
+                {
+                    int i = Cars.FindAll(x => x.Model == "Volvo").Count(y => y.Color == "Grey");
+                    listBox1.Items.Add($"{i}");
+                }
+            );
+
+            btnAverageBMW.Click += new EventHandler(
+                (sender, e) =>
+                {
+                    
+                }
+            );
+
+            btnExpensive.Click += new EventHandler(
+                (sender, e) =>
+                {
+                    
+                }
+            );
         }
     }
 }
