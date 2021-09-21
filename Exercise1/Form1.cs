@@ -34,6 +34,7 @@ namespace Exercise1
             btnRedAmount.Click += new EventHandler(
                 (sender, e) => // object sender, EventArgs e
                 {
+                    // Count all occurences of "Red" on every Color element
                     int i = Cars.Count(x => x.Color == "Red"); 
                     listBox2.Items.Add($"You have {i} red cars");
                 }
@@ -42,6 +43,7 @@ namespace Exercise1
             btnOldCars.Click += new EventHandler(
                 (sender, e) =>
                 {
+                    // Count all occurences of Year being before 2003
                     int i = Cars.Count(x => x.Year < 2003);
                     listBox2.Items.Add($"You have {i} cars made before 2003");
                 }
@@ -50,6 +52,7 @@ namespace Exercise1
             btnGreyVolvo.Click += new EventHandler(
                 (sender, e) =>
                 {
+                    // FindAll occurences of Volvo and count how many times "Grey" occur
                     int i = Cars.FindAll(x => x.Make == "Volvo").Count(y => y.Color == "Grey");
                     listBox2.Items.Add($"There are {i} gray Volvos");
                 }
@@ -58,6 +61,7 @@ namespace Exercise1
             btnAverageBMW.Click += new EventHandler(
                 (sender, e) =>
                 {
+                    // FindAll occurences of BMW and check the average km 
                     double j = Cars.FindAll(x => x.Make == "BMW").Average(y => y.Km);
                     listBox2.Items.Add($"Your BMW's have drove an average of {j}km");
                 }
@@ -66,6 +70,7 @@ namespace Exercise1
             btnExpensive.Click += new EventHandler(
                 (sender, e) =>
                 {
+                    // Order price in decending order and use the first result, ToList() to access the props
                     var sortedPrice = Cars.OrderByDescending(x => x.Price).ToList();
                     listBox2.Items.Add($"{sortedPrice[0].Make} {sortedPrice[0].Model} " +
                                        $"{sortedPrice[0].Year} is the most expensive car " +
@@ -73,7 +78,7 @@ namespace Exercise1
                 }
             );
         }
-        public void CarList()
+        public void CarList() // Just to get all the code out of the way, for readability and to prevent tumours
         {
             Cars.Add(new Car() { Id = 1, Make = "Volvo", Model = "V70", Color = "White", Km = 1292, Price = 3465, Year = 1998 });
             Cars.Add(new Car() { Id = 31, Make = "Skoda", Model = "Fabia", Color = "Red", Km = 1292, Price = 76556, Year = 2001 });
