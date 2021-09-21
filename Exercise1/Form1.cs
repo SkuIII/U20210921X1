@@ -68,15 +68,16 @@ namespace Exercise1
             btnGreyVolvo.Click += new EventHandler(
                 (sender, e) =>
                 {
-                    int i = Cars.FindAll(x => x.Model == "Volvo").Count(y => y.Color == "Grey");
-                    listBox1.Items.Add($"{i}");
+                    int i = Cars.FindAll(x => x.Make == "Volvo").Count(y => y.Color == "Grey");
+                    listBox2.Items.Add($"There are {i} gray Volvos");
                 }
             );
 
             btnAverageBMW.Click += new EventHandler(
                 (sender, e) =>
                 {
-                    
+                    double j = Cars.FindAll(x => x.Make == "BMW").Average(y => y.Km);
+                    listBox2.Items.Add($"Your BMW's have drove an average of {j:0.##}km");
                 }
             );
 
