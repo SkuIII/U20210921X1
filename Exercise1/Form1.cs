@@ -48,17 +48,14 @@ namespace Exercise1
             {
                 listBox1.Items.Add($"{c.Make} {c.Model} {c.Year}");
             }
-        }
 
-    }
-    class Car
-    {
-        public int Id { get; set; }
-        public string Make { get; set; }
-        public string Model { get; set; }
-        public string Color { get; set; }
-        public int Km { get; set; }
-        public int Price { get; set; }
-        public int Year { get; set; }
+            btnRedAmount.Click += new EventHandler(
+                (sender, e) =>
+                {
+                    int i = Cars.Count(x => x.Color == "Red");
+                    listBox2.Items.Add($"You have {i} red cars");
+                }
+            );
+        }
     }
 }

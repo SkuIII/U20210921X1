@@ -30,11 +30,11 @@ namespace Exercise1
         private void InitializeComponent()
         {
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnRedAmount = new System.Windows.Forms.Button();
+            this.btnOldCars = new System.Windows.Forms.Button();
+            this.btnGreyVolvo = new System.Windows.Forms.Button();
+            this.btnAverageBMW = new System.Windows.Forms.Button();
+            this.btnExpensive = new System.Windows.Forms.Button();
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -47,50 +47,50 @@ namespace Exercise1
             this.listBox1.Size = new System.Drawing.Size(133, 290);
             this.listBox1.TabIndex = 0;
             // 
-            // button1
+            // btnRedAmount
             // 
-            this.button1.Location = new System.Drawing.Point(176, 29);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(123, 54);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Amount of Red Cars";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnRedAmount.Location = new System.Drawing.Point(176, 29);
+            this.btnRedAmount.Name = "btnRedAmount";
+            this.btnRedAmount.Size = new System.Drawing.Size(123, 54);
+            this.btnRedAmount.TabIndex = 1;
+            this.btnRedAmount.Text = "Amount of Red Cars";
+            this.btnRedAmount.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnOldCars
             // 
-            this.button2.Location = new System.Drawing.Point(176, 89);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(123, 55);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Cars older than 2003";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnOldCars.Location = new System.Drawing.Point(176, 89);
+            this.btnOldCars.Name = "btnOldCars";
+            this.btnOldCars.Size = new System.Drawing.Size(123, 55);
+            this.btnOldCars.TabIndex = 2;
+            this.btnOldCars.Text = "Cars older than 2003";
+            this.btnOldCars.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnGreyVolvo
             // 
-            this.button3.Location = new System.Drawing.Point(176, 150);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(123, 52);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Amount of Grey Volvos";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnGreyVolvo.Location = new System.Drawing.Point(176, 150);
+            this.btnGreyVolvo.Name = "btnGreyVolvo";
+            this.btnGreyVolvo.Size = new System.Drawing.Size(123, 52);
+            this.btnGreyVolvo.TabIndex = 3;
+            this.btnGreyVolvo.Text = "Amount of Grey Volvos";
+            this.btnGreyVolvo.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnAverageBMW
             // 
-            this.button4.Location = new System.Drawing.Point(176, 208);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(123, 52);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "Average KM for BMW";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnAverageBMW.Location = new System.Drawing.Point(176, 208);
+            this.btnAverageBMW.Name = "btnAverageBMW";
+            this.btnAverageBMW.Size = new System.Drawing.Size(123, 52);
+            this.btnAverageBMW.TabIndex = 4;
+            this.btnAverageBMW.Text = "Average KM for BMW";
+            this.btnAverageBMW.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // btnExpensive
             // 
-            this.button5.Location = new System.Drawing.Point(176, 266);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(123, 55);
-            this.button5.TabIndex = 5;
-            this.button5.Text = "Most Expensive Car?";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnExpensive.Location = new System.Drawing.Point(176, 266);
+            this.btnExpensive.Name = "btnExpensive";
+            this.btnExpensive.Size = new System.Drawing.Size(123, 55);
+            this.btnExpensive.TabIndex = 5;
+            this.btnExpensive.Text = "Most Expensive Car?";
+            this.btnExpensive.UseVisualStyleBackColor = true;
             // 
             // listBox2
             // 
@@ -106,7 +106,7 @@ namespace Exercise1
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.label1.Location = new System.Drawing.Point(631, -3);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 31);
+            this.label1.Size = new System.Drawing.Size(72, 31);
             this.label1.TabIndex = 7;
             this.label1.Text = "Cars";
             // 
@@ -117,11 +117,11 @@ namespace Exercise1
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listBox2);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnExpensive);
+            this.Controls.Add(this.btnAverageBMW);
+            this.Controls.Add(this.btnGreyVolvo);
+            this.Controls.Add(this.btnOldCars);
+            this.Controls.Add(this.btnRedAmount);
             this.Controls.Add(this.listBox1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -133,11 +133,11 @@ namespace Exercise1
         #endregion
 
         private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnRedAmount;
+        private System.Windows.Forms.Button btnOldCars;
+        private System.Windows.Forms.Button btnGreyVolvo;
+        private System.Windows.Forms.Button btnAverageBMW;
+        private System.Windows.Forms.Button btnExpensive;
         private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.Label label1;
     }
