@@ -12,14 +12,17 @@ namespace Exercise1
 {
     public partial class Form1 : Form
     {
+        // Initialize list
         List<Car> Cars;
         public Form1()
         {
             InitializeComponent();
 
+            // Instantiate list
             Cars = new List<Car>();
-            CarList();
+            CarList(); // Call Carlist
 
+            // Sort list by letters based on "Make"
             var sortedList = Cars.OrderBy(x => x.Make);
 
             foreach (Car c in sortedList)
@@ -27,10 +30,11 @@ namespace Exercise1
                 listBox1.Items.Add($"{c.Make} {c.Model} {c.Year}");
             }
 
+            // Add event handler, shorthand syntax with lambda instead of normal function
             btnRedAmount.Click += new EventHandler(
-                (sender, e) =>
+                (sender, e) => // object sender, EventArgs e
                 {
-                    int i = Cars.Count(x => x.Color == "Red");
+                    int i = Cars.Count(x => x.Color == "Red"); 
                     listBox2.Items.Add($"You have {i} red cars");
                 }
             );
@@ -64,7 +68,8 @@ namespace Exercise1
                 {
                     var sortedPrice = Cars.OrderByDescending(x => x.Price).ToList();
                     listBox2.Items.Add($"{sortedPrice[0].Make} {sortedPrice[0].Model} " +
-                                       $"{sortedPrice[0].Year} is the most expensive car");
+                                       $"{sortedPrice[0].Year} is the most expensive car " +
+                                       $"and it costs {sortedPrice[0].Price:C}");
                 }
             );
         }

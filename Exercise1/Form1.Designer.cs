@@ -49,7 +49,7 @@ namespace Exercise1
             // 
             // btnRedAmount
             // 
-            this.btnRedAmount.Location = new System.Drawing.Point(249, 29);
+            this.btnRedAmount.Location = new System.Drawing.Point(360, 31);
             this.btnRedAmount.Name = "btnRedAmount";
             this.btnRedAmount.Size = new System.Drawing.Size(123, 54);
             this.btnRedAmount.TabIndex = 1;
@@ -58,7 +58,7 @@ namespace Exercise1
             // 
             // btnOldCars
             // 
-            this.btnOldCars.Location = new System.Drawing.Point(249, 89);
+            this.btnOldCars.Location = new System.Drawing.Point(360, 89);
             this.btnOldCars.Name = "btnOldCars";
             this.btnOldCars.Size = new System.Drawing.Size(123, 55);
             this.btnOldCars.TabIndex = 2;
@@ -67,7 +67,7 @@ namespace Exercise1
             // 
             // btnGreyVolvo
             // 
-            this.btnGreyVolvo.Location = new System.Drawing.Point(249, 150);
+            this.btnGreyVolvo.Location = new System.Drawing.Point(360, 150);
             this.btnGreyVolvo.Name = "btnGreyVolvo";
             this.btnGreyVolvo.Size = new System.Drawing.Size(123, 52);
             this.btnGreyVolvo.TabIndex = 3;
@@ -76,7 +76,7 @@ namespace Exercise1
             // 
             // btnAverageBMW
             // 
-            this.btnAverageBMW.Location = new System.Drawing.Point(249, 208);
+            this.btnAverageBMW.Location = new System.Drawing.Point(360, 208);
             this.btnAverageBMW.Name = "btnAverageBMW";
             this.btnAverageBMW.Size = new System.Drawing.Size(123, 52);
             this.btnAverageBMW.TabIndex = 4;
@@ -85,7 +85,7 @@ namespace Exercise1
             // 
             // btnExpensive
             // 
-            this.btnExpensive.Location = new System.Drawing.Point(249, 266);
+            this.btnExpensive.Location = new System.Drawing.Point(360, 266);
             this.btnExpensive.Name = "btnExpensive";
             this.btnExpensive.Size = new System.Drawing.Size(123, 55);
             this.btnExpensive.TabIndex = 5;
@@ -97,7 +97,7 @@ namespace Exercise1
             this.listBox2.FormattingEnabled = true;
             this.listBox2.Location = new System.Drawing.Point(12, 31);
             this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(231, 290);
+            this.listBox2.Size = new System.Drawing.Size(342, 290);
             this.listBox2.TabIndex = 6;
             // 
             // label1
