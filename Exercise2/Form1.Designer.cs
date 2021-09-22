@@ -36,6 +36,15 @@ namespace Exercise2
             this.comboBoxColor = new System.Windows.Forms.ComboBox();
             this.labelColors = new System.Windows.Forms.Label();
             this.listBoxModels = new System.Windows.Forms.ListBox();
+            this.labelEditInfo = new System.Windows.Forms.Label();
+            this.labelID = new System.Windows.Forms.Label();
+            this.labelPrice = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.textBoxId = new System.Windows.Forms.TextBox();
+            this.textBoxPrice = new System.Windows.Forms.TextBox();
+            this.textBoxKm = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // listBoxCars
@@ -100,11 +109,99 @@ namespace Exercise2
             this.listBoxModels.Size = new System.Drawing.Size(136, 95);
             this.listBoxModels.TabIndex = 7;
             // 
+            // labelEditInfo
+            // 
+            this.labelEditInfo.AutoSize = true;
+            this.labelEditInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.labelEditInfo.Location = new System.Drawing.Point(12, 364);
+            this.labelEditInfo.Name = "labelEditInfo";
+            this.labelEditInfo.Size = new System.Drawing.Size(165, 31);
+            this.labelEditInfo.TabIndex = 8;
+            this.labelEditInfo.Text = "Edit Car Info";
+            // 
+            // labelID
+            // 
+            this.labelID.AutoSize = true;
+            this.labelID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.labelID.Location = new System.Drawing.Point(14, 410);
+            this.labelID.Name = "labelID";
+            this.labelID.Size = new System.Drawing.Size(26, 20);
+            this.labelID.TabIndex = 9;
+            this.labelID.Text = "ID";
+            // 
+            // labelPrice
+            // 
+            this.labelPrice.AutoSize = true;
+            this.labelPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.labelPrice.Location = new System.Drawing.Point(14, 468);
+            this.labelPrice.Name = "labelPrice";
+            this.labelPrice.Size = new System.Drawing.Size(44, 20);
+            this.labelPrice.TabIndex = 10;
+            this.labelPrice.Text = "Price";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label3.Location = new System.Drawing.Point(25, 505);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(32, 20);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "KM";
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Location = new System.Drawing.Point(95, 408);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(46, 23);
+            this.btnEdit.TabIndex = 12;
+            this.btnEdit.Text = "Edit Car";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(111, 541);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(52, 25);
+            this.btnSave.TabIndex = 13;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            // 
+            // textBoxId
+            // 
+            this.textBoxId.Location = new System.Drawing.Point(41, 410);
+            this.textBoxId.Name = "textBoxId";
+            this.textBoxId.Size = new System.Drawing.Size(39, 20);
+            this.textBoxId.TabIndex = 14;
+            // 
+            // textBoxPrice
+            // 
+            this.textBoxPrice.Location = new System.Drawing.Point(63, 468);
+            this.textBoxPrice.Name = "textBoxPrice";
+            this.textBoxPrice.Size = new System.Drawing.Size(100, 20);
+            this.textBoxPrice.TabIndex = 15;
+            // 
+            // textBoxKm
+            // 
+            this.textBoxKm.Location = new System.Drawing.Point(63, 505);
+            this.textBoxKm.Name = "textBoxKm";
+            this.textBoxKm.Size = new System.Drawing.Size(100, 20);
+            this.textBoxKm.TabIndex = 16;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(872, 679);
+            this.ClientSize = new System.Drawing.Size(626, 697);
+            this.Controls.Add(this.textBoxKm);
+            this.Controls.Add(this.textBoxPrice);
+            this.Controls.Add(this.textBoxId);
+            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.btnEdit);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.labelPrice);
+            this.Controls.Add(this.labelID);
+            this.Controls.Add(this.labelEditInfo);
             this.Controls.Add(this.listBoxModels);
             this.Controls.Add(this.labelColors);
             this.Controls.Add(this.comboBoxColor);
@@ -128,6 +225,15 @@ namespace Exercise2
         private System.Windows.Forms.ComboBox comboBoxColor;
         private System.Windows.Forms.Label labelColors;
         private System.Windows.Forms.ListBox listBoxModels;
+        private System.Windows.Forms.Label labelEditInfo;
+        private System.Windows.Forms.Label labelID;
+        private System.Windows.Forms.Label labelPrice;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.TextBox textBoxId;
+        private System.Windows.Forms.TextBox textBoxPrice;
+        private System.Windows.Forms.TextBox textBoxKm;
     }
 }
 
