@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Exercise2
@@ -13,7 +9,6 @@ namespace Exercise2
     public partial class Form1 : Form
     {
         List<Car> Cars;
-        int id = 0;
         public Form1()
         {
             InitializeComponent();
@@ -56,9 +51,7 @@ namespace Exercise2
             #endregion
 
             #region combobox
-            var CarColors = Cars.Select(x => x.Color).Distinct();
-
-            foreach (var item in CarColors)
+            foreach (var item in Cars.Select(x => x.Color).Distinct())
             {
                 comboBoxColor.Items.Add(item);
             }
@@ -68,9 +61,7 @@ namespace Exercise2
                     {
                         listBoxModels.Items.Clear();
 
-                        string SelectedColor = (sender as ComboBox).SelectedItem as String;
-
-                        var colorList = Cars.FindAll(x => x.Color == SelectedColor);
+                        var colorList = Cars.FindAll(x => x.Color == (sender as ComboBox).SelectedItem as String);
 
                         foreach (Car c in colorList)
                         {
@@ -82,27 +73,30 @@ namespace Exercise2
             listBoxModels.SelectedIndexChanged += new EventHandler(ListClickHandler);
             #endregion
 
+            #region editcar
             btnEdit.Click += new EventHandler(
                     (sender, e) =>
                     {
-                        var SelectedCarEdit = Cars.Find(x => x.Id == int.Parse(textBoxId.Text));
+                        var selectedCarEdit = Cars.Find(x => x.Id == int.Parse(textBoxId.Text));
 
-                        textBoxPrice.Text = SelectedCarEdit.Price.ToString();
-                        textBoxKm.Text = SelectedCarEdit.Km.ToString();
+                        textBoxPrice.Text = selectedCarEdit.Price.ToString();
+                        textBoxKm.Text = selectedCarEdit.Km.ToString();
                     }
                 );
             btnSave.Click += new EventHandler(
                     (sender, e) =>
                     {
-                        Cars.Find(x => x.Id == int.Parse(textBoxId.Text)).Price = int.Parse(textBoxPrice.Text);
+                        var selectedID = Cars.Find(x => x.Id == int.Parse(textBoxId.Text));
 
-                        Cars.Find(x => x.Id == int.Parse(textBoxId.Text)).Km = int.Parse(textBoxKm.Text);
+                        selectedID.Price = int.Parse(textBoxPrice.Text);
+                        selectedID.Km = int.Parse(textBoxKm.Text);
 
                         textBoxId.Clear();
                         textBoxPrice.Clear();
                         textBoxKm.Clear();
                     }
                 );
+            #endregion
         }
 
         private void ListClickHandler(object sender, EventArgs e)
