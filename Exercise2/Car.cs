@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Exercise2
 {
-    class Car
+    public class Car
     {
         public int Id { get; set; }
         public string Make { get; set; }
@@ -15,5 +15,10 @@ namespace Exercise2
         public int Km { get; set; }
         public int Price { get; set; }
         public int Year { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Make} {Model}";
+        }
     }
 }

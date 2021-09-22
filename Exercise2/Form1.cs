@@ -20,6 +20,30 @@ namespace Exercise2
             Cars = new List<Car>();
             CarList();
 
+            foreach (Car c in Cars.OrderBy(x => x.Make))
+            {
+                listBoxCars.Items.Add(c);
+            }
+
+            listBoxCars.SelectedIndexChanged += new EventHandler(
+                    (sender, e) =>
+                    {
+                        listBoxInfo.Items.Clear();
+
+                        ListBox myListofCars = sender as ListBox;
+
+                        Car mySelectedCar = myListofCars.SelectedItem as Car;
+
+                        listBoxInfo.Items.Add($"Id: {mySelectedCar.Id}");
+                        listBoxInfo.Items.Add($"Make: {mySelectedCar.Make}");
+                        listBoxInfo.Items.Add($"Model: {mySelectedCar.Model}");
+                        listBoxInfo.Items.Add($"Color: {mySelectedCar.Color}");
+                        listBoxInfo.Items.Add($"Km: {mySelectedCar.Km}");
+                        listBoxInfo.Items.Add($"Price: {mySelectedCar.Price}");
+                        listBoxInfo.Items.Add($"Year: {mySelectedCar.Year}");
+                    }
+                );
+
         }
         public void CarList()
         {
