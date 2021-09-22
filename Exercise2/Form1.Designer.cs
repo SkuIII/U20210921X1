@@ -33,8 +33,9 @@ namespace Exercise2
             this.labelList = new System.Windows.Forms.Label();
             this.labelInfo = new System.Windows.Forms.Label();
             this.listBoxInfo = new System.Windows.Forms.ListBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxColor = new System.Windows.Forms.ComboBox();
             this.labelColors = new System.Windows.Forms.Label();
+            this.listBoxModels = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // listBoxCars
@@ -73,13 +74,13 @@ namespace Exercise2
             this.listBoxInfo.Size = new System.Drawing.Size(120, 121);
             this.listBoxInfo.TabIndex = 4;
             // 
-            // comboBox1
+            // comboBoxColor
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(435, 51);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(136, 21);
-            this.comboBox1.TabIndex = 5;
+            this.comboBoxColor.FormattingEnabled = true;
+            this.comboBoxColor.Location = new System.Drawing.Point(435, 51);
+            this.comboBoxColor.Name = "comboBoxColor";
+            this.comboBoxColor.Size = new System.Drawing.Size(136, 21);
+            this.comboBoxColor.TabIndex = 5;
             // 
             // labelColors
             // 
@@ -91,13 +92,22 @@ namespace Exercise2
             this.labelColors.TabIndex = 6;
             this.labelColors.Text = "Colors";
             // 
+            // listBoxModels
+            // 
+            this.listBoxModels.FormattingEnabled = true;
+            this.listBoxModels.Location = new System.Drawing.Point(435, 115);
+            this.listBoxModels.Name = "listBoxModels";
+            this.listBoxModels.Size = new System.Drawing.Size(136, 95);
+            this.listBoxModels.TabIndex = 7;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(872, 679);
+            this.Controls.Add(this.listBoxModels);
             this.Controls.Add(this.labelColors);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.comboBoxColor);
             this.Controls.Add(this.listBoxInfo);
             this.Controls.Add(this.labelInfo);
             this.Controls.Add(this.labelList);
@@ -115,8 +125,9 @@ namespace Exercise2
         private System.Windows.Forms.Label labelList;
         private System.Windows.Forms.Label labelInfo;
         private System.Windows.Forms.ListBox listBoxInfo;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxColor;
         private System.Windows.Forms.Label labelColors;
+        private System.Windows.Forms.ListBox listBoxModels;
     }
 }
 

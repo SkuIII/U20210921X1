@@ -44,6 +44,29 @@ namespace Exercise2
                     }
                 );
 
+            var CarColors = Cars.Select(x => x.Color).Distinct();
+
+            foreach (var item in CarColors)
+            {
+                comboBoxColor.Items.Add(item);
+            }
+
+            comboBoxColor.SelectedIndexChanged += new EventHandler(
+                    (sender, e) =>
+                    {
+                        listBoxModels.Items.Clear();
+
+                        string SelectedColor = (sender as ComboBox).SelectedItem as String;
+
+                        var colorList = Cars.FindAll(x => x.Color == SelectedColor);
+
+                        foreach (Car c in colorList)
+                        {
+                            listBoxModels.Items.Add(c);
+                        }
+                    }
+                );
+
         }
         public void CarList()
         {
