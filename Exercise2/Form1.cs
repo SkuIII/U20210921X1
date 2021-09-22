@@ -13,9 +13,11 @@ namespace Exercise2
         {
             InitializeComponent();
 
+            // Instantiating list
             Cars = new List<Car>();
 
             #region carsAdded
+            // Adding all cars
             Cars.Add(new Car() { Id = 1, Make = "Volvo", Model = "V70", Color = "White", Km = 1292, Price = 3465, Year = 1998 });
             Cars.Add(new Car() { Id = 31, Make = "Skoda", Model = "Fabia", Color = "Red", Km = 1292, Price = 76556, Year = 2001 });
             Cars.Add(new Car() { Id = 14, Make = "Volvo", Model = "XC90", Color = "Blue", Km = 432, Price = 32001, Year = 2003 });
@@ -41,28 +43,35 @@ namespace Exercise2
             #endregion
 
             #region carlist
+            // Order all cars alphabetically by Make
             foreach (Car c in Cars.OrderBy(x => x.Make))
             {
                 listBoxCars.Items.Add(c);
             }
 
+            // Add new event, click or select index in listBox
             listBoxCars.SelectedIndexChanged += new EventHandler(ListClickHandler);
 
             #endregion
 
             #region combobox
-            foreach (var item in Cars.Select(x => x.Color).Distinct())
+            // Select each distinct color in Cars
+            foreach (var uniqueColor in Cars.Select(x => x.Color).Distinct())
             {
-                comboBoxColor.Items.Add(item);
+                comboBoxColor.Items.Add(uniqueColor);
             }
 
+            // Event for clicking on the colors on combobox
             comboBoxColor.SelectedIndexChanged += new EventHandler(
                     (sender, e) =>
                     {
+                        // Clear listBox after each car
                         listBoxModels.Items.Clear();
-
+                        
+                        // Find all occurrences of SelectedItem (color) 
                         var colorList = Cars.FindAll(x => x.Color == (sender as ComboBox).SelectedItem as String);
 
+                        // Print each car with the selected color
                         foreach (Car c in colorList)
                         {
                             listBoxModels.Items.Add(c);
@@ -74,23 +83,31 @@ namespace Exercise2
             #endregion
 
             #region editcar
+            // Event for clicking on the edit button
             btnEdit.Click += new EventHandler(
                     (sender, e) =>
                     {
+                        // Find the selected car based of ID
                         var selectedCarEdit = Cars.Find(x => x.Id == int.Parse(textBoxId.Text));
 
+                        // Print the attributes of the selected car
                         textBoxPrice.Text = selectedCarEdit.Price.ToString();
                         textBoxKm.Text = selectedCarEdit.Km.ToString();
                     }
                 );
+
+            // Event for clicking on the save button
             btnSave.Click += new EventHandler(
                     (sender, e) =>
                     {
-                        var selectedID = Cars.Find(x => x.Id == int.Parse(textBoxId.Text));
+                        // Find the selected car based of ID
+                        var selectedCarEdit = Cars.Find(x => x.Id == int.Parse(textBoxId.Text));
 
-                        selectedID.Price = int.Parse(textBoxPrice.Text);
-                        selectedID.Km = int.Parse(textBoxKm.Text);
+                        // Replace price and km based of input
+                        selectedCarEdit.Price = int.Parse(textBoxPrice.Text);
+                        selectedCarEdit.Km = int.Parse(textBoxKm.Text);
 
+                        // Clear all boxes when saved
                         textBoxId.Clear();
                         textBoxPrice.Clear();
                         textBoxKm.Clear();
@@ -99,14 +116,15 @@ namespace Exercise2
             #endregion
         }
 
+        // Function for handling list click events
         private void ListClickHandler(object sender, EventArgs e)
         {
             listBoxInfo.Items.Clear();
 
-            ListBox myListofCars = sender as ListBox;
+            // mySelectedCar is the selected Car and sender is a ListBox
+            Car mySelectedCar = (sender as ListBox).SelectedItem as Car;
 
-            Car mySelectedCar = myListofCars.SelectedItem as Car;
-
+            // Printing all the info in info box, need a better solution with line break
             listBoxInfo.Items.Add($"Id: {mySelectedCar.Id}");
             listBoxInfo.Items.Add($"Make: {mySelectedCar.Make}");
             listBoxInfo.Items.Add($"Model: {mySelectedCar.Model}");
