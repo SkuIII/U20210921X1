@@ -151,9 +151,9 @@ namespace Exercise2
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(95, 408);
+            this.btnEdit.Location = new System.Drawing.Point(111, 408);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(46, 23);
+            this.btnEdit.Size = new System.Drawing.Size(52, 23);
             this.btnEdit.TabIndex = 12;
             this.btnEdit.Text = "Edit Car";
             this.btnEdit.UseVisualStyleBackColor = true;
@@ -192,7 +192,7 @@ namespace Exercise2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(626, 697);
+            this.ClientSize = new System.Drawing.Size(626, 603);
             this.Controls.Add(this.textBoxKm);
             this.Controls.Add(this.textBoxPrice);
             this.Controls.Add(this.textBoxId);

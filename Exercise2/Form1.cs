@@ -13,6 +13,7 @@ namespace Exercise2
     public partial class Form1 : Form
     {
         List<Car> Cars;
+        int id = 0;
         public Form1()
         {
             InitializeComponent();
@@ -81,7 +82,27 @@ namespace Exercise2
             listBoxModels.SelectedIndexChanged += new EventHandler(ListClickHandler);
             #endregion
 
+            btnEdit.Click += new EventHandler(
+                    (sender, e) =>
+                    {
+                        var SelectedCarEdit = Cars.Find(x => x.Id == int.Parse(textBoxId.Text));
 
+                        textBoxPrice.Text = SelectedCarEdit.Price.ToString();
+                        textBoxKm.Text = SelectedCarEdit.Km.ToString();
+                    }
+                );
+            btnSave.Click += new EventHandler(
+                    (sender, e) =>
+                    {
+                        Cars.Find(x => x.Id == int.Parse(textBoxId.Text)).Price = int.Parse(textBoxPrice.Text);
+
+                        Cars.Find(x => x.Id == int.Parse(textBoxId.Text)).Km = int.Parse(textBoxKm.Text);
+
+                        textBoxId.Clear();
+                        textBoxPrice.Clear();
+                        textBoxKm.Clear();
+                    }
+                );
         }
 
         private void ListClickHandler(object sender, EventArgs e)
