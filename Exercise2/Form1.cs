@@ -43,8 +43,8 @@ namespace Exercise2
             #endregion
 
             #region carlist
-            // Order all cars alphabetically by Make
-            foreach (Car c in Cars.OrderBy(x => x.Make))
+            // Order all cars alphabetically by Make, Model and Year
+            foreach (Car c in Cars.OrderBy(x => x.Make).ThenBy(x => x.Model).ThenBy(x => x.Year))
             {
                 listBoxCars.Items.Add(c);
             }
@@ -55,7 +55,7 @@ namespace Exercise2
             #endregion
 
             #region combobox
-            // Select each distinct color in Cars
+            // Find each distinct color in Cars and print
             foreach (var uniqueColor in Cars.Select(x => x.Color).Distinct())
             {
                 comboBoxColor.Items.Add(uniqueColor);
@@ -125,26 +125,27 @@ namespace Exercise2
             #endregion
 
             #region deleteCar
+            // Event for clicking on the delete button
             btnDelete.Click += new EventHandler(
                 (sender, e) =>
                 {
+                    // Find the index in the list where input lays
                     var selectedCarEdit = Cars.FindIndex(x => x.Id == int.Parse(textBoxDelId.Text));
 
+                    // Remove Car object at index 
                     Cars.RemoveAt(selectedCarEdit);
 
-                    listBoxCars.Items.Clear();
-
-                    foreach (Car c in Cars.OrderBy(x => x.Make))
-                    {
-                        listBoxCars.Items.Add(c);
-                    }
+                    RefreshListBox();
                 }
             );
             #endregion
 
+            #region addCar
+            // Event for clicking on the Add button
             btnAdd.Click += new EventHandler(
                 (sender, e) =>
                 {
+                    // Add new car object based on user input
                     Cars.Add(new Car()
                     {
                         Id = int.Parse(textBoxIdAdd.Text),
@@ -156,30 +157,17 @@ namespace Exercise2
                         Year = int.Parse(textBoxYear.Text)
                     });
 
-                    foreach (var item in Cars)
-                    {
-                        if (item.Id == int.Parse(textBoxIdAdd.Text))
-                        {
-                            MessageBox.Show("Test");
-                        }
-                    }
-
-                    listBoxCars.Items.Clear();
-
-                    foreach (Car c in Cars.OrderBy(x => x.Make))
-                    {
-                        listBoxCars.Items.Add(c);
-                    }
+                    RefreshListBox();
                 }
             );
+            #endregion
         }
 
-        // Function for handling list click events
         private void ListClickHandler(object sender, EventArgs e)
         {
             listBoxInfo.Items.Clear();
 
-            // mySelectedCar is the selected Car and sender is a ListBox
+            // sender is a ListBox
             Car mySelectedCar = (sender as ListBox).SelectedItem as Car;
 
             // Printing all the info in info box, need a better solution with line break
@@ -190,6 +178,15 @@ namespace Exercise2
             listBoxInfo.Items.Add($"Km: {mySelectedCar.Km}");
             listBoxInfo.Items.Add($"Price: {mySelectedCar.Price:C}");
             listBoxInfo.Items.Add($"Year: {mySelectedCar.Year}");
+        }
+        private void RefreshListBox()
+        {
+            listBoxCars.Items.Clear();
+
+            foreach (Car c in Cars.OrderBy(x => x.Make).ThenBy(x => x.Model).ThenBy(x => x.Year))
+            {
+                listBoxCars.Items.Add(c);
+            }
         }
     }
 }
