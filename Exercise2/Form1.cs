@@ -124,12 +124,45 @@ namespace Exercise2
                 );
             #endregion
 
+            #region deleteCar
             btnDelete.Click += new EventHandler(
                 (sender, e) =>
                 {
                     var selectedCarEdit = Cars.FindIndex(x => x.Id == int.Parse(textBoxDelId.Text));
 
                     Cars.RemoveAt(selectedCarEdit);
+
+                    listBoxCars.Items.Clear();
+
+                    foreach (Car c in Cars.OrderBy(x => x.Make))
+                    {
+                        listBoxCars.Items.Add(c);
+                    }
+                }
+            );
+            #endregion
+
+            btnAdd.Click += new EventHandler(
+                (sender, e) =>
+                {
+                    Cars.Add(new Car()
+                    {
+                        Id = int.Parse(textBoxIdAdd.Text),
+                        Make = textBoxMake.Text,
+                        Model = textBoxModel.Text,
+                        Color = textBoxColor.Text,
+                        Km = int.Parse(textBoxKmAdd.Text),
+                        Price = int.Parse(textBoxPriceAdd.Text),
+                        Year = int.Parse(textBoxYear.Text)
+                    });
+
+                    foreach (var item in Cars)
+                    {
+                        if (item.Id == int.Parse(textBoxIdAdd.Text))
+                        {
+                            MessageBox.Show("Test");
+                        }
+                    }
 
                     listBoxCars.Items.Clear();
 
