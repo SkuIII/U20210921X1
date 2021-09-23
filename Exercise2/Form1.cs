@@ -83,25 +83,32 @@ namespace Exercise2
             #endregion
 
             #region editcar
+            // Disable the boxes so you cant write when edit car is not pressed
             textBoxKm.ReadOnly = true;
             textBoxPrice.ReadOnly = true;
 
+            // New eventhandler for keypress in textBoxId
             textBoxId.KeyPress += new KeyPressEventHandler(KeyPressControl);
 
             // Event for clicking on the edit button
             btnEdit.Click += new EventHandler(
                     (sender, e) =>
                     {
+                        // Enable boxes again so you can write in them after edit is clicked
                         textBoxKm.ReadOnly = false;
                         textBoxPrice.ReadOnly = false;
 
+                        // New eventhandler for keypress in textboxkm and price
                         textBoxPrice.KeyPress += new KeyPressEventHandler(KeyPressControl);
                         textBoxKm.KeyPress += new KeyPressEventHandler(KeyPressControl);
 
+                        // try catch to prevent exception when not entering a number
                         try
                         {
+                            // Find the selected car based of ID
                             var selectedCarEdit = Cars.Find(x => x.Id == int.Parse(textBoxId.Text));
 
+                            // if id doesn't exist throw messagebox 
                             if (selectedCarEdit == null)
                             {
                                 MessageBox.Show("You must enter a valid ID!");
@@ -109,13 +116,13 @@ namespace Exercise2
                                 textBoxKm.ReadOnly = true;
                                 textBoxPrice.ReadOnly = true;
                             }
-                            else
+                            else // go like normal
                             {
                                 textBoxPrice.Text = selectedCarEdit.Price.ToString();
                                 textBoxKm.Text = selectedCarEdit.Km.ToString(); 
                             }
                         }
-                        catch (Exception)
+                        catch (Exception) // catch exception when not entering a number
                         {
                             MessageBox.Show("You need to enter an ID!");
 
@@ -132,12 +139,14 @@ namespace Exercise2
                         // Find the selected car based of ID
                         var selectedCarEdit = Cars.Find(x => x.Id == int.Parse(textBoxId.Text));
 
-                        // Replace price and km based of input
+                        // try catch to catch exception when not entering values in both fields
                         try
                         {
+                            // Replace price and km based of input
                             selectedCarEdit.Price = int.Parse(textBoxPrice.Text);
                             selectedCarEdit.Km = int.Parse(textBoxKm.Text);
 
+                            // Clear all boxes 
                             textBoxId.Clear();
                             textBoxPrice.Clear();
                             textBoxKm.Clear();
@@ -182,6 +191,7 @@ namespace Exercise2
             listBoxInfo.Items.Add($"Year: {mySelectedCar.Year}");
         }
 
+        // Keypress eventhandler function
         private void KeyPressControl(object sender, KeyPressEventArgs e)
         {
             // If key is not 0-9 or backspace don't let it through
