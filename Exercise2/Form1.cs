@@ -92,7 +92,7 @@ namespace Exercise2
 
             // Event for clicking on the edit button
             btnEdit.Click += new EventHandler(
-                    (sender, e) =>
+                (sender, e) =>
                     {
                         // Enable boxes again so you can write in them after edit is clicked
                         textBoxKm.ReadOnly = false;
@@ -171,6 +171,22 @@ namespace Exercise2
                     }
                 );
             #endregion
+
+            btnDelete.Click += new EventHandler(
+                (sender, e) =>
+                {
+                    var selectedCarEdit = Cars.FindIndex(x => x.Id == int.Parse(textBoxDelId.Text));
+
+                    Cars.RemoveAt(selectedCarEdit);
+
+                    listBoxCars.Items.Clear();
+
+                    foreach (Car c in Cars.OrderBy(x => x.Make))
+                    {
+                        listBoxCars.Items.Add(c);
+                    }
+                }
+            );
         }
 
         // Function for handling list click events

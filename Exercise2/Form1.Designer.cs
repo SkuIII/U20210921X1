@@ -45,6 +45,10 @@ namespace Exercise2
             this.textBoxId = new System.Windows.Forms.TextBox();
             this.textBoxPrice = new System.Windows.Forms.TextBox();
             this.textBoxKm = new System.Windows.Forms.TextBox();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.textBoxDelId = new System.Windows.Forms.TextBox();
+            this.labelDeleteId = new System.Windows.Forms.Label();
+            this.labelDeleteCar = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // listBoxCars
@@ -188,11 +192,51 @@ namespace Exercise2
             this.textBoxKm.Size = new System.Drawing.Size(100, 20);
             this.textBoxKm.TabIndex = 16;
             // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(559, 405);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(46, 23);
+            this.btnDelete.TabIndex = 17;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            // 
+            // textBoxDelId
+            // 
+            this.textBoxDelId.Location = new System.Drawing.Point(495, 408);
+            this.textBoxDelId.Name = "textBoxDelId";
+            this.textBoxDelId.Size = new System.Drawing.Size(38, 20);
+            this.textBoxDelId.TabIndex = 18;
+            // 
+            // labelDeleteId
+            // 
+            this.labelDeleteId.AutoSize = true;
+            this.labelDeleteId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.labelDeleteId.Location = new System.Drawing.Point(463, 408);
+            this.labelDeleteId.Name = "labelDeleteId";
+            this.labelDeleteId.Size = new System.Drawing.Size(26, 20);
+            this.labelDeleteId.TabIndex = 19;
+            this.labelDeleteId.Text = "ID";
+            // 
+            // labelDeleteCar
+            // 
+            this.labelDeleteCar.AutoSize = true;
+            this.labelDeleteCar.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.labelDeleteCar.Location = new System.Drawing.Point(461, 364);
+            this.labelDeleteCar.Name = "labelDeleteCar";
+            this.labelDeleteCar.Size = new System.Drawing.Size(144, 31);
+            this.labelDeleteCar.TabIndex = 20;
+            this.labelDeleteCar.Text = "Delete Car";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(626, 603);
+            this.Controls.Add(this.labelDeleteCar);
+            this.Controls.Add(this.labelDeleteId);
+            this.Controls.Add(this.textBoxDelId);
+            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.textBoxKm);
             this.Controls.Add(this.textBoxPrice);
             this.Controls.Add(this.textBoxId);
@@ -234,6 +278,10 @@ namespace Exercise2
         private System.Windows.Forms.TextBox textBoxId;
         private System.Windows.Forms.TextBox textBoxPrice;
         private System.Windows.Forms.TextBox textBoxKm;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.TextBox textBoxDelId;
+        private System.Windows.Forms.Label labelDeleteId;
+        private System.Windows.Forms.Label labelDeleteCar;
     }
 }
 
