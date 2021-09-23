@@ -83,16 +83,45 @@ namespace Exercise2
             #endregion
 
             #region editcar
+            textBoxKm.ReadOnly = true;
+            textBoxPrice.ReadOnly = true;
+
+            textBoxId.KeyPress += new KeyPressEventHandler(KeyPressControl);
+
             // Event for clicking on the edit button
             btnEdit.Click += new EventHandler(
                     (sender, e) =>
                     {
-                        // Find the selected car based of ID
-                        var selectedCarEdit = Cars.Find(x => x.Id == int.Parse(textBoxId.Text));
+                        textBoxKm.ReadOnly = false;
+                        textBoxPrice.ReadOnly = false;
 
-                        // Print the attributes of the selected car
-                        textBoxPrice.Text = selectedCarEdit.Price.ToString();
-                        textBoxKm.Text = selectedCarEdit.Km.ToString();
+                        textBoxPrice.KeyPress += new KeyPressEventHandler(KeyPressControl);
+                        textBoxKm.KeyPress += new KeyPressEventHandler(KeyPressControl);
+
+                        try
+                        {
+                            var selectedCarEdit = Cars.Find(x => x.Id == int.Parse(textBoxId.Text));
+
+                            if (selectedCarEdit == null)
+                            {
+                                MessageBox.Show("You must enter a valid ID!");
+
+                                textBoxKm.ReadOnly = true;
+                                textBoxPrice.ReadOnly = true;
+                            }
+                            else
+                            {
+                                textBoxPrice.Text = selectedCarEdit.Price.ToString();
+                                textBoxKm.Text = selectedCarEdit.Km.ToString(); 
+                            }
+                        }
+                        catch (Exception)
+                        {
+                            MessageBox.Show("You need to enter an ID!");
+
+                            textBoxKm.ReadOnly = true;
+                            textBoxPrice.ReadOnly = true;
+                        }
                     }
                 );
 
@@ -104,13 +133,32 @@ namespace Exercise2
                         var selectedCarEdit = Cars.Find(x => x.Id == int.Parse(textBoxId.Text));
 
                         // Replace price and km based of input
-                        selectedCarEdit.Price = int.Parse(textBoxPrice.Text);
-                        selectedCarEdit.Km = int.Parse(textBoxKm.Text);
+                        try
+                        {
+                            selectedCarEdit.Price = int.Parse(textBoxPrice.Text);
+                            selectedCarEdit.Km = int.Parse(textBoxKm.Text);
 
-                        // Clear all boxes when saved
-                        textBoxId.Clear();
-                        textBoxPrice.Clear();
-                        textBoxKm.Clear();
+                            textBoxId.Clear();
+                            textBoxPrice.Clear();
+                            textBoxKm.Clear();
+
+                            textBoxKm.ReadOnly = true;
+                            textBoxPrice.ReadOnly = true;
+
+                            listBoxInfo.Items.Clear();
+
+                            listBoxInfo.Items.Add($"Id: {selectedCarEdit.Id}");
+                            listBoxInfo.Items.Add($"Make: {selectedCarEdit.Make}");
+                            listBoxInfo.Items.Add($"Model: {selectedCarEdit.Model}");
+                            listBoxInfo.Items.Add($"Color: {selectedCarEdit.Color}");
+                            listBoxInfo.Items.Add($"Km: {selectedCarEdit.Km}");
+                            listBoxInfo.Items.Add($"Price: {selectedCarEdit.Price:C}");
+                            listBoxInfo.Items.Add($"Year: {selectedCarEdit.Year}");
+                        }
+                        catch (Exception)
+                        {
+                            MessageBox.Show("You need to enter values in both fields!");
+                        }
                     }
                 );
             #endregion
@@ -132,6 +180,18 @@ namespace Exercise2
             listBoxInfo.Items.Add($"Km: {mySelectedCar.Km}");
             listBoxInfo.Items.Add($"Price: {mySelectedCar.Price:C}");
             listBoxInfo.Items.Add($"Year: {mySelectedCar.Year}");
+        }
+
+        private void KeyPressControl(object sender, KeyPressEventArgs e)
+        {
+            // If key is not 0-9 or backspace don't let it through
+            if (e.KeyChar < '0' || e.KeyChar > '9')
+            {
+                if (((short)e.KeyChar) != 8)
+                {
+                    e.Handled = true;
+                }
+            }
         }
     }
 }
